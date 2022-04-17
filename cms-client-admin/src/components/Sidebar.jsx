@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { NavLink } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
-import logo from "../hacktiv.svg";
+// import logo from "../hacktiv.svg";
 import Swal from "sweetalert2";
 
 const Sidebar = () => {
@@ -44,7 +44,7 @@ const Sidebar = () => {
           showSidebar ? "translate-x-0 " : "translate-y-full"
         }`}
       >
-        <img src={logo} className="w-30 opacity-80" alt="logo" />
+        {/* <img src={logo} className="w-10 opacity-80" alt="logo" /> */}
         <h3 className=" mb-10 text-2xl text-center font-bold text-white">
           CMS News Portal
         </h3>
@@ -107,6 +107,16 @@ const Sidebar = () => {
               }
             >
               Register Admin
+            </NavLink>
+          </li>
+          <li>
+            <NavLink
+              to="/profile"
+              className={({ isActive }) =>
+                isActive ? "text-active" : "text-hover"
+              }
+            >
+              Profile
             </NavLink>
           </li>
           <li>
