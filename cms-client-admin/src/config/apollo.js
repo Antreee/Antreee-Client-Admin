@@ -1,11 +1,24 @@
-import {
-    ApolloClient,
-    InMemoryCache,
-  } from "@apollo/client";
+import { ApolloClient, createHttpLink, InMemoryCache } from "@apollo/client";
+import { setContext } from "@apollo/client/link/context";
 
-  const client = new ApolloClient({
-    uri: 'https://d228-2001-448a-6040-fa9b-d7a-8c8c-756e-c27c.ngrok.io',
-    cache: new InMemoryCache()
-  });
 
-  export default client
+const link = createHttpLink({
+	uri: "https://fd0c-125-165-20-137.ngrok.io",
+});
+
+const authLink = setContext((_, { headers }) => {
+	const access_token = localStorage.getItem("access_token");
+	return {
+		headers: {
+			...headers,
+			authorization: access_token ? `${access_token}` : "",
+		},
+	};
+});
+
+const client = new ApolloClient({
+	cache: new InMemoryCache(),
+	link: authLink.concat(link),
+});
+
+export default client;
