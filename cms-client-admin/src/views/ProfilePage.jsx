@@ -1,99 +1,83 @@
-// import { GET_RESTAURANT_ADMIN } from "../config/queries";
-// import { useQuery } from "@apollo/client";
+import { GET_RESTAURANT_ADMIN } from "../config/queries";
+import { useQuery } from "@apollo/client";
 
 export default function ProfilePage() {
-  // const { loading, error, data } = useQuery(GET_RESTAURANT_ADMIN);
-  // if (loading) return <p>Loading...</p>;
-  // if (error) return <p>Error!</p>;
+	const { loading, error, data } = useQuery(GET_RESTAURANT_ADMIN);
+	if (loading) return <p>Loading...</p>;
+	if (error) return <p>Error!</p>;
 
-  return (
-    <>
-      {/* {data.getRestaurantByAdmin.map((restaurant) => { */}
-      {/* return ( */}
-      <div className="flex flex-wrap">
-        <div className="w-full lg:w-4/12 px-4 ml-52">
-          <div className="relative flex flex-col min-w-0 break-words bg-white ml-52 w-full mb-6 shadow-xl rounded-lg mt-16">
-            <div className="px-6">
-              <div className="flex flex-wrap justify-center">
-                <div className="w-full px-4 flex justify-center">
-                  <div className="relative">
-                    <img
-                      alt="..."
-                      src="https://media.istockphoto.com/photos/cat-with-blue-eyes-looks-at-camera-picture-id1067347086?b=1&k=20&m=1067347086&s=170667a&w=0&h=kLUll2ujZmQo8JjMQYuxyVCtCtdd6W6ylzu6fJqu8PI="
-                      className="shadow-xl rounded-full h-auto align-middle border-none absolute -m-16 -ml-20 lg:-ml-16 max-w-150-px"
-                    />
-                  </div>
-                </div>
-                <div className="w-full px-4 text-center mt-20">
-                  <div className="flex justify-center py-4 lg:pt-4 pt-8">
-                    <div className="mr-4 p-3 text-center">
-                      <span className="text-xl font-bold block uppercase tracking-wide text-blueGray-600">
-                        cuise
-                      </span>
-                      <span className="text-sm text-blueGray-400">Friends</span>
-                    </div>
-                    <div className="mr-4 p-3 text-center">
-                      <span className="text-xl font-bold block uppercase tracking-wide text-blueGray-600">
-                        10
-                      </span>
-                      <span className="text-sm text-blueGray-400">Photos</span>
-                    </div>
-                    <div className="lg:mr-4 p-3 text-center">
-                      <span className="text-xl font-bold block uppercase tracking-wide text-blueGray-600">
-                        89
-                      </span>
-                      <span className="text-sm text-blueGray-400">
-                        Comments
-                      </span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div className="text-center mt-12">
-                <h3 className="text-xl font-semibold leading-normal mb-2 text-blueGray-700 mb-2">
-                  Jenna Stones
-                </h3>
-                <div className="text-sm leading-normal mt-0 mb-2 text-blueGray-400 font-bold uppercase">
-                  <i className="fas fa-map-marker-alt mr-2 text-lg text-blueGray-400"></i>{" "}
-                  Los Angeles, California
-                </div>
-                <div className="mb-2 text-blueGray-600 mt-10">
-                  <i className="fas fa-briefcase mr-2 text-lg text-blueGray-400"></i>
-                  Solution Manager - Creative Tim Officer
-                </div>
-                <div className="mb-2 text-blueGray-600">
-                  <i className="fas fa-university mr-2 text-lg text-blueGray-400"></i>
-                  University of Computer Science
-                </div>
-              </div>
-              <div className="mt-10 py-10 border-t border-blueGray-200 text-center">
-                <div className="flex flex-wrap justify-center">
-                  <div className="w-full lg:w-9/12 px-4">
-                    <p className="mb-4 text-lg leading-relaxed text-blueGray-700">
-                      An artist of considerable range, Jenna the name taken by
-                      Melbourne-raised, Brooklyn-based Nick Murphy writes,
-                      performs and records all of his own music, giving it a
-                      warm, intimate feel with a solid groove structure. An
-                      artist of considerable range.
-                    </p>
-                    <a
-                      href="#pablo"
-                      className="font-normal text-lightBlue-500"
-                      onClick={(e) => e.preventDefault()}
-                    >
-                      Show more
-                    </a>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
+	if (data) {
+		data.getRestaurantByAdmin.map((el) =>
+			localStorage.setItem("restaurantId", el._id)
+		);
+	}
 
-      {/* ); */}
-      {/* })} */}
-    </>
-  );
-
+	return (
+		<>
+			{data.getRestaurantByAdmin.map((restaurant) => {
+				return (
+					<div className="flex flex-wrap" key={restaurant._id}>
+						<div className="w-full lg:w-4/12 px-4 ml-52">
+							<div className="relative flex flex-col min-w-0 break-words bg-white ml-52 w-full mb-6 shadow-xl rounded-lg mt-16 pb-5">
+								<div className="px-6">
+									<div className="text-center mt-6">
+										<div className="w-full px-4 flex justify-center">
+											<div className="relative">
+												<img
+													alt="..."
+													src={restaurant.logoUrl}
+													className="h-56 "
+												/>
+											</div>
+										</div>
+										<h3 className="text-xl font-semibold leading-normal text-blueGray-700 mb-2 pt-5">
+											{restaurant.name}
+										</h3>
+										<div className="flex flex-wrap justify-center">
+											<div className="w-full px-4 text-center">
+												<div className="flex justify-center py-4 lg:pt-4 pt-8">
+													<div className="mr-4 p-3 text-center">
+														<span className="text-sm font-bold block  tracking-wide text-blueGray-600">
+															{restaurant.cuisine[0]}
+														</span>
+													</div>
+													<div className="mr-4 p-3 text-center">
+														<span className="text-sm font-bold block  tracking-wide text-blueGray-600">
+															{restaurant.cuisine[1]}
+														</span>
+													</div>
+													<div className="lg:mr-4 p-3 text-center">
+														<span className="text-sm font-bold block  tracking-wide text-blueGray-600">
+															{restaurant.cuisine[2]}
+														</span>
+													</div>
+												</div>
+											</div>
+										</div>
+										<div className="text-sm leading-normal mt-0 mb-2 text-blueGray-400 font-bold uppercase">
+											<i className="fas fa-map-marker-alt mr-2 text-lg text-blueGray-400"></i>{" "}
+											{restaurant.contactNumber}
+										</div>
+										<div className="mb-2 text-blueGray-600 mt-10">
+											<i className="fas fa-briefcase mr-2 text-lg text-blueGray-400"></i>
+											{restaurant.address}
+										</div>
+										<label className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-400"></label>
+										<select
+											name="availablity"
+											value={restaurant.availablity}
+											className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+										>
+											<option value="available">Available</option>
+											<option value="unavailable">Unavailable</option>
+										</select>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				);
+			})}
+		</>
+	);
 }
