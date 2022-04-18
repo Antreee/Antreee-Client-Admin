@@ -79,16 +79,7 @@ const Sidebar = () => {
               List Booking
             </NavLink>
           </li>
-          <li>
-            <NavLink
-              to="/transaction-history"
-              className={({ isActive }) =>
-                isActive ? "text-active" : "text-hover"
-              }
-            >
-              Transaction Histories
-            </NavLink>
-          </li>
+
           <li>
             <NavLink
               to="/categories"
