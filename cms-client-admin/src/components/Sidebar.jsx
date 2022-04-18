@@ -42,7 +42,7 @@ const Sidebar = () => {
 			)}
 
       <div
-        className={`top-0 left-0 w-[20vw]  bg-orange-500  p-10 pl-20 text-white fixed h-full z-40 ease-in-out duration-300 ${
+        className={`top-0 left-0 w-[20vw] bg-orange-500  p-10 pl-20 text-white fixed h-full z-40 ease-in-out duration-300 ${
           showSidebar ? "translate-x-0 " : "translate-y-full"
         }`}
       >
@@ -81,16 +81,7 @@ const Sidebar = () => {
               List Booking
             </NavLink>
           </li>
-          <li>
-            <NavLink
-              to="/transaction-history"
-              className={({ isActive }) =>
-                isActive ? "text-active" : "text-hover"
-              }
-            >
-              Transaction Histories
-            </NavLink>
-          </li>
+
           <li>
             <NavLink
               to="/categories"

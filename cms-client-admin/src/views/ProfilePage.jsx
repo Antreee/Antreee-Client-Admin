@@ -1,46 +1,99 @@
-import { GET_RESTAURANT_ADMIN } from "../config/queries";
-import { useQuery } from "@apollo/client";
+// import { GET_RESTAURANT_ADMIN } from "../config/queries";
+// import { useQuery } from "@apollo/client";
 
 export default function ProfilePage() {
-	const { loading, error, data } = useQuery(GET_RESTAURANT_ADMIN);
-	if (loading) return <p>Loading...</p>;
-	if (error) return <p>Error!</p>;
+  // const { loading, error, data } = useQuery(GET_RESTAURANT_ADMIN);
+  // if (loading) return <p>Loading...</p>;
+  // if (error) return <p>Error!</p>;
 
-	console.log(data);
-	return (
-		<>
-			{data.getRestaurantByAdmin?.map((restaurant) => {
-				return (
-					<div className="container mx-auto mt-12 mb-40 space-y-12">
-						<div className="max-w-xl rounded-lg shadow-md lg:flex md:flex shadow-sky-600 ml-72">
-							{/* <img
-            className="object-cover w-full md:w-1/2 lg:w-1/3"
-            src="https://cdn.pixabay.com/photo/2016/12/19/18/21/snowflake-1918794__340.jpg"
-            alt="image"
-          /> */}
-							<div className="px-6 py-4">
-								<h4 className="mb-3 text-base font-semibold tracking-tight text-sky-600">
-									{restaurant.name}
-								</h4>
-								<p className="mb-2 text-sm leading-normal text-justify text-sky-900">
-									Address : {restaurant.address}
-								</p>
-								<p className="mb-2 text-sm leading-normal text-justify text-sky-900">
-									Contact Number : {restaurant.contactNumber}
-								</p>
-								<div className="flex justify-center">
-									<div className="mb-3">
-										<select className="form-select block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding bg-no-repeat border border-solid border-gray-300 rounded focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none">
-											<option value="1">Available</option>
-											<option value="2">Unvailable</option>
-										</select>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-				);
-			})}
-		</>
-	);
+  return (
+    <>
+      {/* {data.getRestaurantByAdmin.map((restaurant) => { */}
+      {/* return ( */}
+      <div className="flex flex-wrap">
+        <div className="w-full lg:w-4/12 px-4 ml-52">
+          <div className="relative flex flex-col min-w-0 break-words bg-white ml-52 w-full mb-6 shadow-xl rounded-lg mt-16">
+            <div className="px-6">
+              <div className="flex flex-wrap justify-center">
+                <div className="w-full px-4 flex justify-center">
+                  <div className="relative">
+                    <img
+                      alt="..."
+                      src="https://media.istockphoto.com/photos/cat-with-blue-eyes-looks-at-camera-picture-id1067347086?b=1&k=20&m=1067347086&s=170667a&w=0&h=kLUll2ujZmQo8JjMQYuxyVCtCtdd6W6ylzu6fJqu8PI="
+                      className="shadow-xl rounded-full h-auto align-middle border-none absolute -m-16 -ml-20 lg:-ml-16 max-w-150-px"
+                    />
+                  </div>
+                </div>
+                <div className="w-full px-4 text-center mt-20">
+                  <div className="flex justify-center py-4 lg:pt-4 pt-8">
+                    <div className="mr-4 p-3 text-center">
+                      <span className="text-xl font-bold block uppercase tracking-wide text-blueGray-600">
+                        cuise
+                      </span>
+                      <span className="text-sm text-blueGray-400">Friends</span>
+                    </div>
+                    <div className="mr-4 p-3 text-center">
+                      <span className="text-xl font-bold block uppercase tracking-wide text-blueGray-600">
+                        10
+                      </span>
+                      <span className="text-sm text-blueGray-400">Photos</span>
+                    </div>
+                    <div className="lg:mr-4 p-3 text-center">
+                      <span className="text-xl font-bold block uppercase tracking-wide text-blueGray-600">
+                        89
+                      </span>
+                      <span className="text-sm text-blueGray-400">
+                        Comments
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div className="text-center mt-12">
+                <h3 className="text-xl font-semibold leading-normal mb-2 text-blueGray-700 mb-2">
+                  Jenna Stones
+                </h3>
+                <div className="text-sm leading-normal mt-0 mb-2 text-blueGray-400 font-bold uppercase">
+                  <i className="fas fa-map-marker-alt mr-2 text-lg text-blueGray-400"></i>{" "}
+                  Los Angeles, California
+                </div>
+                <div className="mb-2 text-blueGray-600 mt-10">
+                  <i className="fas fa-briefcase mr-2 text-lg text-blueGray-400"></i>
+                  Solution Manager - Creative Tim Officer
+                </div>
+                <div className="mb-2 text-blueGray-600">
+                  <i className="fas fa-university mr-2 text-lg text-blueGray-400"></i>
+                  University of Computer Science
+                </div>
+              </div>
+              <div className="mt-10 py-10 border-t border-blueGray-200 text-center">
+                <div className="flex flex-wrap justify-center">
+                  <div className="w-full lg:w-9/12 px-4">
+                    <p className="mb-4 text-lg leading-relaxed text-blueGray-700">
+                      An artist of considerable range, Jenna the name taken by
+                      Melbourne-raised, Brooklyn-based Nick Murphy writes,
+                      performs and records all of his own music, giving it a
+                      warm, intimate feel with a solid groove structure. An
+                      artist of considerable range.
+                    </p>
+                    <a
+                      href="#pablo"
+                      className="font-normal text-lightBlue-500"
+                      onClick={(e) => e.preventDefault()}
+                    >
+                      Show more
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* ); */}
+      {/* })} */}
+    </>
+  );
+
 }

@@ -6,7 +6,7 @@ import Home from "./views/Home";
 import Dashboard from "./views/DashboardPage";
 import ItemsPage from "./views/ItemsPage"
 import BookingPage from "./views/BookingPage"
-import TransactionHistoryPage from "./views/TransactionHistoryPage"
+
 import RegisterPage from './views/RegisterPage';
 import ProfilePage from './views/ProfilePage';
 import LoginPage from './views/LoginPage';
@@ -28,7 +28,6 @@ function App() {
             <Route index path="" element={<Dashboard />} />
             <Route path="items" element={<ItemsPage />} />
             <Route path="booking" element={<BookingPage />} />
-            <Route path="transaction-history" element={<TransactionHistoryPage />} />
             <Route path="profile" element={<ProfilePage />} />
             {/* <Route path="posts/add" element={<AddPost />} />
             <Route path="posts/edit/:id" element={<EditPost />} />
