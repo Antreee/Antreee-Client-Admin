@@ -2,7 +2,6 @@
 // import { useQuery } from "@apollo/client";
 
 export default function ProfilePage() {
-
   // const { loading, error, data } = useQuery(GET_RESTAURANT_ADMIN);
   // if (loading) return <p>Loading...</p>;
   // if (error) return <p>Error!</p>;
