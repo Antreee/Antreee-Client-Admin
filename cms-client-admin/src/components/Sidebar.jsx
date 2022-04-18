@@ -41,95 +41,95 @@ const Sidebar = () => {
 				</svg>
 			)}
 
-			<div
-				className={`top-0 left-0 w-[20vw] bg-orange-dark  p-10 pl-20 text-white fixed h-full z-40 ease-in-out duration-300 ${
-					showSidebar ? "translate-x-0 " : "translate-y-full"
-				}`}
-			>
-				{/* <img src={logo} className="w-10 opacity-80" alt="logo" /> */}
-				<h3 className=" mb-10 text-2xl text-center font-bold text-white">
-					CMS News Portal
-				</h3>
-				<ul className="p-6 space-y-8 text-xl">
-					<li>
-						<NavLink
-							to="/"
-							className={({ isActive }) =>
-								isActive ? "text-active" : "text-hover"
-							}
-						>
-							Dashboard
-						</NavLink>
-					</li>
-					<li>
-						<NavLink
-							to="/items"
-							className={({ isActive }) =>
-								isActive ? "text-active" : "text-hover"
-							}
-						>
-							List Items
-						</NavLink>
-					</li>
-					<li>
-						<NavLink
-							to="/booking"
-							className={({ isActive }) =>
-								isActive ? "text-active" : "text-hover"
-							}
-						>
-							List Booking
-						</NavLink>
-					</li>
-					<li>
-						<NavLink
-							to="/transaction-history"
-							className={({ isActive }) =>
-								isActive ? "text-active" : "text-hover"
-							}
-						>
-							Transaction Histories
-						</NavLink>
-					</li>
-					<li>
-						<NavLink
-							to="/categories"
-							className={({ isActive }) =>
-								isActive ? "text-active" : "text-hover"
-							}
-						>
-							Customers Favourites
-						</NavLink>
-					</li>
-					<li>
-						<NavLink
-							to="/register"
-							className={({ isActive }) =>
-								isActive ? "text-active" : "text-hover"
-							}
-						>
-							Register Admin
-						</NavLink>
-					</li>
-					<li>
-						<NavLink
-							to="/profile"
-							className={({ isActive }) =>
-								isActive ? "text-active" : "text-hover"
-							}
-						>
-							Profile
-						</NavLink>
-					</li>
-					<li>
-						<button onClick={logout} className={"text-hover"}>
-							Sign Out
-						</button>
-					</li>
-				</ul>
-			</div>
-		</>
-	);
+      <div
+        className={`top-0 left-0 w-[20vw]  bg-orange-500  p-10 pl-20 text-white fixed h-full z-40 ease-in-out duration-300 ${
+          showSidebar ? "translate-x-0 " : "translate-y-full"
+        }`}
+      >
+        {/* <img src={logo} className="w-10 opacity-80" alt="logo" /> */}
+        <h3 className=" mb-10 text-2xl text-center font-bold text-white">
+          CMS News Portal
+        </h3>
+        <ul className="p-6 space-y-8 text-xl">
+          <li>
+            <NavLink
+              to="/"
+              className={({ isActive }) =>
+                isActive ? "text-active" : "text-hover"
+              }
+            >
+              Dashboard
+            </NavLink>
+          </li>
+          <li>
+            <NavLink
+              to="/items"
+              className={({ isActive }) =>
+                isActive ? "text-active" : "text-hover"
+              }
+            >
+              List Items
+            </NavLink>
+          </li>
+          <li>
+            <NavLink
+              to="/booking"
+              className={({ isActive }) =>
+                isActive ? "text-active" : "text-hover"
+              }
+            >
+              List Booking
+            </NavLink>
+          </li>
+          <li>
+            <NavLink
+              to="/transaction-history"
+              className={({ isActive }) =>
+                isActive ? "text-active" : "text-hover"
+              }
+            >
+              Transaction Histories
+            </NavLink>
+          </li>
+          <li>
+            <NavLink
+              to="/categories"
+              className={({ isActive }) =>
+                isActive ? "text-active" : "text-hover"
+              }
+            >
+              Customers Favourites
+            </NavLink>
+          </li>
+          <li>
+            <NavLink
+              to="/register"
+              className={({ isActive }) =>
+                isActive ? "text-active" : "text-hover"
+              }
+            >
+              Register Admin
+            </NavLink>
+          </li>
+          <li>
+            <NavLink
+              to="/profile"
+              className={({ isActive }) =>
+                isActive ? "text-active" : "text-hover"
+              }
+            >
+              Profile
+            </NavLink>
+          </li>
+          <li>
+            <button onClick={logout} className={"text-hover"}>
+              Sign Out
+            </button>
+          </li>
+        </ul>
+      </div>
+    </>
+  );
 };
 
 export default Sidebar;
