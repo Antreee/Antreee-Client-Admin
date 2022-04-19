@@ -2,19 +2,75 @@ import { GET_RESTAURANT_ADMIN } from "../config/queries";
 import { useQuery } from "@apollo/client";
 
 export default function ProfilePage() {
-	const { loading, error, data } = useQuery(GET_RESTAURANT_ADMIN);
-	if (loading) return <p>Loading...</p>;
-	if (error) return <p>Error!</p>;
+  const { loading, error, data } = useQuery(GET_RESTAURANT_ADMIN);
+  if (loading) return <p>Loading...</p>;
+  if (error) return <p>Error!</p>;
 
-	if (data) {
-		data.getRestaurantByAdmin.map((el) =>
-			localStorage.setItem("restaurantId", el._id)
-		);
-	}
+  if (data) {
+    data.getRestaurantByAdmin.map((el) =>
+      localStorage.setItem("restaurantId", el._id)
+    );
+  }
 
-	return (
-		<>
-			{data.getRestaurantByAdmin.map((restaurant) => {
+  return (
+    <>
+      {data.getRestaurantByAdmin.map((restaurant) => {
+        return (
+          <div class="flex justify-center items-center min-h-screen bg-gray-200">
+            <div
+              aria-details="card"
+              class="relative flex w-[300px] hover:w-[700px] transition-all duration-1000 ease-in-out h-96 overflow-hidden bg-white shadow-2xl"
+            >
+              <div
+                aria-details="image"
+                class="relative min-w-xm w-[300px] scale-50 h-full bg-white flex justify-center items-center"
+              >
+                <img
+                  class="h-96 max-w-xs transition duration-300 ease-out hover:-rotate-12 hover:-translate-x-5"
+                  src={restaurant.logoUrl}
+                />
+              </div>
+              <div
+                aria-details="details"
+                class="bg-yellow-200 relative min-w-sm h-full flex p-5 flex-col justify-center transition delay-700 ease-in-out"
+              >
+                <h1 class="text-2xl font-extrabold tracking-tight text-gray-900 sm:text-3xl">
+                  {restaurant.name}
+                </h1>
+                <h4 class="text-sm font-medium mt-2">
+                  {restaurant.contactNumber}
+                </h4>
+                <p class="text-md font-normal text-left">
+                  {restaurant.address}
+                </p>
+                <ul class="flex justify-around my-4">
+                  <li class="border-2 p-2 rounded-md font-semibold border-black hover:bg-yellow-300">
+                    {restaurant.cuisine[0]}
+                  </li>
+                  <li class="border-2 p-2 rounded-md font-semibold border-black hover:bg-yellow-300 ">
+                    {restaurant.cuisine[1]}
+                  </li>
+                  <li class="border-2 p-2 rounded-md font-semibold border-black hover:bg-yellow-300 ">
+                    {restaurant.cuisine[2]}
+                  </li>
+                </ul>
+                <div class="flex justify-between items-center mt-4">
+                  <select
+                    name="availablity"
+                    value={restaurant.availablity}
+                    className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                  >
+                    <option value="available">Available</option>
+                    <option value="unavailable">Unavailable</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+          </div>
+        );
+      })}
+
+      {/* {data.getRestaurantByAdmin.map((restaurant) => {
 				return (
 					<div className="flex flex-wrap" key={restaurant._id}>
 						<div className="w-full lg:w-4/12 px-4 ml-52">
@@ -77,7 +133,7 @@ export default function ProfilePage() {
 						</div>
 					</div>
 				);
-			})}
-		</>
-	);
+			})} */}
+    </>
+  );
 }
