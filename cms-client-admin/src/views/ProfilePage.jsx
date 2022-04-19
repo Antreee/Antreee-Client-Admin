@@ -1,10 +1,22 @@
 import { GET_RESTAURANT_ADMIN } from "../config/queries";
 import { useQuery } from "@apollo/client";
+import Spinners from "../components/Spinner";
 
 export default function ProfilePage() {
   const { loading, error, data } = useQuery(GET_RESTAURANT_ADMIN);
-  if (loading) return <p>Loading...</p>;
-  if (error) return <p>Error!</p>;
+
+  if (error) {
+    return (
+      <section className="flex flex-col w-full p-4 px-12 pt-10 md:pt-10 md:px-10 ml-52 mb-10">
+        <p className="p-6 text-2xl">Error....</p>
+      </section>
+    );
+  }
+  console.log(data);
+
+  if (loading) {
+    return <Spinners />;
+  }
 
   if (data) {
     data.getRestaurantByAdmin.map((el) =>
@@ -16,45 +28,46 @@ export default function ProfilePage() {
     <>
       {data.getRestaurantByAdmin.map((restaurant) => {
         return (
-          <div class="flex justify-center items-center min-h-screen bg-gray-200">
+          <div key={restaurant._id} className="flex justify-center items-center min-h-screen bg-gray-200">
             <div
               aria-details="card"
-              class="relative flex w-[300px] hover:w-[700px] transition-all duration-1000 ease-in-out h-96 overflow-hidden bg-white shadow-2xl"
+              className="relative flex w-[300px] hover:w-[700px] transition-all duration-1000 ease-in-out h-96 overflow-hidden bg-white shadow-2xl"
             >
               <div
                 aria-details="image"
-                class="relative min-w-xm w-[300px] scale-50 h-full bg-white flex justify-center items-center"
+                className="relative min-w-xm w-[300px] scale-50 h-full bg-white flex justify-center items-center"
               >
                 <img
-                  class="h-96 max-w-xs transition duration-300 ease-out hover:-rotate-12 hover:-translate-x-5"
+                  className="h-96 max-w-xs transition duration-300 ease-out hover:-rotate-12 hover:-translate-x-5"
                   src={restaurant.logoUrl}
+                  alt="restaurant"
                 />
               </div>
               <div
                 aria-details="details"
-                class="bg-yellow-200 relative min-w-sm h-full flex p-5 flex-col justify-center transition delay-700 ease-in-out"
+                className="bg-yellow-200 relative min-w-sm h-full flex p-5 flex-col justify-center transition delay-700 ease-in-out"
               >
-                <h1 class="text-2xl font-extrabold tracking-tight text-gray-900 sm:text-3xl">
+                <h1 className="text-2xl font-extrabold tracking-tight text-gray-900 sm:text-3xl">
                   {restaurant.name}
                 </h1>
-                <h4 class="text-sm font-medium mt-2">
+                <h4 className="text-sm font-medium mt-2">
                   {restaurant.contactNumber}
                 </h4>
-                <p class="text-md font-normal text-left">
+                <p className="text-md font-normal text-left">
                   {restaurant.address}
                 </p>
-                <ul class="flex justify-around my-4">
-                  <li class="border-2 p-2 rounded-md font-semibold border-black hover:bg-yellow-300">
+                <ul className="flex justify-around my-4">
+                  <li className="p-2 rounded-md font-semibold">
                     {restaurant.cuisine[0]}
                   </li>
-                  <li class="border-2 p-2 rounded-md font-semibold border-black hover:bg-yellow-300 ">
+                  <li className="p-2 rounded-md font-semibold">
                     {restaurant.cuisine[1]}
                   </li>
-                  <li class="border-2 p-2 rounded-md font-semibold border-black hover:bg-yellow-300 ">
+                  <li className="p-2 rounded-md font-semibold">
                     {restaurant.cuisine[2]}
                   </li>
                 </ul>
-                <div class="flex justify-between items-center mt-4">
+                <div className="flex justify-between items-center mt-4">
                   <select
                     name="availablity"
                     value={restaurant.availablity}

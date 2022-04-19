@@ -61,3 +61,8 @@
 .color-red {
   background-color: #ff5454;
 }
+
+.color-red-hover:hover {
+  background-color: #ff5454;
+  color: white;
+}
