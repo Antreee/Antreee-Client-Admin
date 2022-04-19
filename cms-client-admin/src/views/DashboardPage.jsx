@@ -1,5 +1,5 @@
 // import ProductTableRow from "../components/ProductTableRow";
-import CardStats from "../components/CardStats";
+
 import TransactionTableRow from "../components/TransactionTableRow";
 
 export default function DashboardPage() {
@@ -31,52 +31,100 @@ export default function DashboardPage() {
             {/* Card stats */}
             <div className="flex flex-wrap">
               <div className="w-full lg:w-6/12 xl:w-3/12 px-4">
-                <CardStats
-                  statSubtitle="Earn per / Month"
-                  statTitle="350,897"
-                  statArrow="up"
-                  statPercent="3.48"
-                  statPercentColor="text-emerald-500"
-                  statDescripiron="Since last month"
-                  statIconName="far fa-chart-bar"
-                  statIconColor="bg-red-500"
-                />
+                <div className="relative flex flex-col min-w-0 break-words bg-white rounded mb-6 xl:mb-0 shadow-lg">
+                  <div className="flex-auto p-4">
+                    <div className="flex flex-wrap">
+                      <div className="relative w-full pr-4 max-w-full flex-grow flex-1">
+                        <h5 className="text-blueGray-400 uppercase font-bold text-xs">
+                          subtitle
+                        </h5>
+                        <span className="font-semibold text-xl text-blueGray-700">
+                          Total Income
+                        </span>
+                      </div>
+                      <div className="relative w-auto pl-4 flex-initial">
+                        <div className="text-white p-3 text-center inline-flex items-center justify-center w-12 h-12 shadow-lg rounded-full "></div>
+                      </div>
+                    </div>
+                    <p className="text-sm text-blueGray-400 mt-4">
+                      <span className="whitespace-nowrap">
+                        test description
+                      </span>
+                    </p>
+                  </div>
+                </div>
               </div>
               <div className="w-full lg:w-6/12 xl:w-3/12 px-4">
-                <CardStats
-                  statSubtitle="Earn per / year"
-                  statTitle="2,356"
-                  statArrow="down"
-                  statPercent="3.48"
-                  statPercentColor="text-red-500"
-                  statDescripiron="Since last week"
-                  statIconName="fas fa-chart-pie"
-                  statIconColor="bg-orange-500"
-                />
+                <div className="relative flex flex-col min-w-0 break-words bg-white rounded mb-6 xl:mb-0 shadow-lg">
+                  <div className="flex-auto p-4">
+                    <div className="flex flex-wrap">
+                      <div className="relative w-full pr-4 max-w-full flex-grow flex-1">
+                        <h5 className="text-blueGray-400 uppercase font-bold text-xs">
+                          subtitle
+                        </h5>
+                        <span className="font-semibold text-xl text-blueGray-700">
+                          Monthly Income
+                        </span>
+                      </div>
+                      <div className="relative w-auto pl-4 flex-initial">
+                        <div className="text-white p-3 text-center inline-flex items-center justify-center w-12 h-12 shadow-lg rounded-full "></div>
+                      </div>
+                    </div>
+                    <p className="text-sm text-blueGray-400 mt-4">
+                      <span className="whitespace-nowrap">
+                        test description
+                      </span>
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <div className="w-full lg:w-6/12 xl:w-3/12 px-4">
+                <div className="relative flex flex-col min-w-0 break-words bg-white rounded mb-6 xl:mb-0 shadow-lg">
+                  <div className="flex-auto p-4">
+                    <div className="flex flex-wrap">
+                      <div className="relative w-full pr-4 max-w-full flex-grow flex-1">
+                        <h5 className="text-blueGray-400 uppercase font-bold text-xs">
+                          subtitle
+                        </h5>
+                        <span className="font-semibold text-xl text-blueGray-700">
+                          Total Order
+                        </span>
+                      </div>
+                      <div className="relative w-auto pl-4 flex-initial">
+                        <div className="text-white p-3 text-center inline-flex items-center justify-center w-12 h-12 shadow-lg rounded-full "></div>
+                      </div>
+                    </div>
+                    <p className="text-sm text-blueGray-400 mt-4">
+                      <span className="whitespace-nowrap">
+                        test description
+                      </span>
+                    </p>
+                  </div>
+                </div>
               </div>
               {/* <div className="w-full lg:w-6/12 xl:w-3/12 px-4">
-                <CardStats
-                  statSubtitle="SALES"
-                  statTitle="924"
-                  statArrow="down"
-                  statPercent="1.10"
-                  statPercentColor="text-orange-500"
-                  statDescripiron="Since yesterday"
-                  statIconName="fas fa-users"
-                  statIconColor="bg-pink-500"
-                />
-              </div>
-              <div className="w-full lg:w-6/12 xl:w-3/12 px-4">
-                <CardStats
-                  statSubtitle="PERFORMANCE"
-                  statTitle="49,65%"
-                  statArrow="up"
-                  statPercent="12"
-                  statPercentColor="text-emerald-500"
-                  statDescripiron="Since last month"
-                  statIconName="fas fa-percent"
-                  statIconColor="bg-lightBlue-500"
-                />
+                <div className="relative flex flex-col min-w-0 break-words bg-white rounded mb-6 xl:mb-0 shadow-lg">
+                  <div className="flex-auto p-4">
+                    <div className="flex flex-wrap">
+                      <div className="relative w-full pr-4 max-w-full flex-grow flex-1">
+                        <h5 className="text-blueGray-400 uppercase font-bold text-xs">
+                          subtitle
+                        </h5>
+                        <span className="font-semibold text-xl text-blueGray-700">
+                          title
+                        </span>
+                      </div>
+                      <div className="relative w-auto pl-4 flex-initial">
+                        <div className="text-white p-3 text-center inline-flex items-center justify-center w-12 h-12 shadow-lg rounded-full "></div>
+                      </div>
+                    </div>
+                    <p className="text-sm text-blueGray-400 mt-4">
+                      <span className="whitespace-nowrap">
+                        test description
+                      </span>
+                    </p>
+                  </div>
+                </div>
               </div> */}
             </div>
           </div>
@@ -91,29 +139,20 @@ export default function DashboardPage() {
             <thead className="text-xs text-gray-700 uppercase bg-gray-100">
               <tr>
                 <th scope="col" className="px-6 py-3">
+                  No
+                </th>
+                <th scope="col" className="px-6 py-3">
                   Order Id
                 </th>
                 <th scope="col" className="px-6 py-3">
-                  Customer Name
-                </th>
-                <th scope="col" className="px-6 py-3">
-                  Customer Phone Number
-                </th>
-                <th scope="col" className="px-6 py-3">
-                  Customer Email
-                </th>
-                <th scope="col" className="px-6 py-3">
-                  Table Number
+                  Description
                 </th>
                 <th scope="col" className="px-6 py-3">
                   Total Price
                 </th>
                 <th scope="col" className="px-6 py-3">
-                  status
+                  Status
                 </th>
-                {/* <th scope="col" className="px-6 py-3">
-              Action
-            </th> */}
               </tr>
             </thead>
             <tbody>

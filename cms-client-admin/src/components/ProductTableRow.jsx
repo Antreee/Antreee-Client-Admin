@@ -1,6 +1,9 @@
-export default function ProductTableRow({ item }) {
+export default function ProductTableRow({ item, i }) {
   return (
     <tr className="bg-white border-b">
+       <td className="py-4 font-medium text-gray-900 whitespace-wrap">
+        {i}
+      </td>
       <td className="py-4 font-medium text-gray-900 whitespace-wrap">
         {item.name}
       </td>
@@ -17,13 +20,13 @@ export default function ProductTableRow({ item }) {
       <td>{item.description}</td>
 
       <td className="">
-        <button
+        {/* <button
           // to={`/products/${data.id}/edit`}
           type="button"
           className="color-yellow hover:underline font-semibold px-3 py-2 text-white text-sm"
         >
           Edit
-        </button>
+        </button> */}
         <button
           href="#"
           // onClick={deleteData}

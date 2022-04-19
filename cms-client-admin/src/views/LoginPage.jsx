@@ -4,7 +4,7 @@ import { LOGIN } from "../config/queries";
 import { useMutation } from "@apollo/client";
 
 // import axios from "axios";
-// import Swal from "sweetalert2";
+import Swal from "sweetalert2";
 
 function LoginPage() {
 	const [loginMutation, { data, loading, error }] = useMutation(LOGIN);
@@ -33,9 +33,10 @@ function LoginPage() {
 				email: login.email,
 				password: login.password,
 			},
-		});
+		})
 	}
 	if (data) {
+		Swal.fire("LOGIN", "Success login", "success");
 		localStorage.setItem("access_token", data.login.access_token);
 		navigate("/profile");
 	}
@@ -50,7 +51,7 @@ function LoginPage() {
 
 	return (
 		<div className="h-screen flex bg-ugray-bg1">
-			<div className="w-full max-w-md m-auto bg-white rounded-lg border border-indigo-200 shadow-default py-10 px-16">
+			<div className="w-full max-w-md m-auto bg-white rounded-lg border border-red-200 shadow-default py-10 px-16">
 				<h1 className="text-2xl font-medium text-primary mt-4 mb-12 text-center">
 					Log in to your account
 				</h1>
@@ -80,7 +81,7 @@ function LoginPage() {
 					</div>
 
 					<div className="flex justify-center items-center mt-6">
-						<button className="bg-green-500 py-2 px-4 text-sm text-white rounded border border-green-200 focus:outline-none focus:border-green-800">
+						<button className="color-red py-2 px-4 text-sm text-white rounded  focus:outline-none">
 							Login
 						</button>
 					</div>
