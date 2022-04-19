@@ -1,5 +1,3 @@
-
-
 .text-active {
   background-color: white;
   padding: 10px 16px;
@@ -12,4 +10,54 @@
   padding: 10px 10px;
   color: black;
   border-radius: 6px;
+}
+
+.color-primary {
+  background-color: #637aff;
+}
+
+.primaryDark {
+  background-color: #2759ff;
+}
+
+.primaryLite {
+  background-color: #637aff99;
+}
+.accent {
+  background-color: #112233;
+}
+.primaryLite {
+  background-color: #637aff99;
+}
+.color-green {
+  background-color: #60c5a8;
+}
+.color-green2 {
+  background-color: #039a83;
+}
+
+.color-light {
+  background-color: #e8e8e8;
+}
+
+.color-purple {
+  background-color: #8f06e4;
+}
+.sky-blue {
+  background-color: skyblue;
+}
+.color-yellow {
+  background-color: #f8c907;
+}
+.color-pink {
+  background-color: #ff4c98;
+}
+.color-gold {
+  background-color: gold;
+}
+.color-line {
+  background-color: #282c35;
+}
+.color-red {
+  background-color: #ff5454;
 }

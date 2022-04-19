@@ -32,7 +32,7 @@ export default function DashboardPage() {
             <div className="flex flex-wrap">
               <div className="w-full lg:w-6/12 xl:w-3/12 px-4">
                 <CardStats
-                  statSubtitle="TRAFFIC"
+                  statSubtitle="Earn per / Month"
                   statTitle="350,897"
                   statArrow="up"
                   statPercent="3.48"
@@ -44,7 +44,7 @@ export default function DashboardPage() {
               </div>
               <div className="w-full lg:w-6/12 xl:w-3/12 px-4">
                 <CardStats
-                  statSubtitle="NEW USERS"
+                  statSubtitle="Earn per / year"
                   statTitle="2,356"
                   statArrow="down"
                   statPercent="3.48"
@@ -54,7 +54,7 @@ export default function DashboardPage() {
                   statIconColor="bg-orange-500"
                 />
               </div>
-              <div className="w-full lg:w-6/12 xl:w-3/12 px-4">
+              {/* <div className="w-full lg:w-6/12 xl:w-3/12 px-4">
                 <CardStats
                   statSubtitle="SALES"
                   statTitle="924"
@@ -77,48 +77,53 @@ export default function DashboardPage() {
                   statIconName="fas fa-percent"
                   statIconColor="bg-lightBlue-500"
                 />
-              </div>
+              </div> */}
             </div>
           </div>
         </div>
-        <section className="flex flex-col p-4 px-12 pt-10 md:pt-10 md:px-10 ml-96 mt-20 mb-10">
-      <div className="justify-between flex mb-6 mr-12 ml-6 items-end">
-        <h1 className="text-3xl font-semibold">Transaction History Table</h1>
-      </div>
-      <table className="w-full h-fit text-sm text-center text-gray-500">
-        <thead className="text-xs text-gray-700 uppercase bg-gray-100">
-          <tr>
-            <th scope="col" className="px-6 py-3">
-              Customer Name
-            </th>
-            <th scope="col" className="px-6 py-3">
-              Customer Phone Number
-            </th>
-            <th scope="col" className="px-6 py-3">
-              Customer Email
-            </th>
-            <th scope="col" className="px-6 py-3">
-              Table Number
-            </th>
-            <th scope="col" className="px-6 py-3">
-              Total Price
-            </th>
-            <th scope="col" className="px-6 py-3">
-              status
-            </th>
-            {/* <th scope="col" className="px-6 py-3">
+        <section className="flex flex-col p-4 px-12 ml-64 pt-10 md:pt-10 md:px-10 mt-20 mb-10">
+          <div className="justify-between flex mb-6 mr-12 ml-6 items-end">
+            <h1 className="text-3xl font-semibold">
+              Transaction History Table
+            </h1>
+          </div>
+          <table className="w-full h-fit text-sm text-center text-gray-500">
+            <thead className="text-xs text-gray-700 uppercase bg-gray-100">
+              <tr>
+                <th scope="col" className="px-6 py-3">
+                  Order Id
+                </th>
+                <th scope="col" className="px-6 py-3">
+                  Customer Name
+                </th>
+                <th scope="col" className="px-6 py-3">
+                  Customer Phone Number
+                </th>
+                <th scope="col" className="px-6 py-3">
+                  Customer Email
+                </th>
+                <th scope="col" className="px-6 py-3">
+                  Table Number
+                </th>
+                <th scope="col" className="px-6 py-3">
+                  Total Price
+                </th>
+                <th scope="col" className="px-6 py-3">
+                  status
+                </th>
+                {/* <th scope="col" className="px-6 py-3">
               Action
             </th> */}
-          </tr>
-        </thead>
-        <tbody>
-          <TransactionTableRow></TransactionTableRow>
-          {/* {products.map((product) => {
+              </tr>
+            </thead>
+            <tbody>
+              <TransactionTableRow></TransactionTableRow>
+              {/* {products.map((product) => {
             return <ProductTableRow key={product.id} data={product}></ProductTableRow>;
           })} */}
-        </tbody>
-      </table>
-    </section>
+            </tbody>
+          </table>
+        </section>
       </div>
     </>
   );

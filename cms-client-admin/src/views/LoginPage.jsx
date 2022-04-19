@@ -36,17 +36,16 @@ function LoginPage() {
 		});
 	}
 	if (data) {
-		console.log(data.login.access_token, "<<<<<<<data");
 		localStorage.setItem("access_token", data.login.access_token);
 		navigate("/profile");
 	}
 
 	if (loading) {
-		<p>loading Ngab...</p>;
+		<p>Loading...</p>;
 	}
 
 	if (error) {
-		<p>error Ngab...</p>;
+		<p>Error...</p>;
 	}
 
 	return (

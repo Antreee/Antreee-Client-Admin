@@ -24,7 +24,7 @@ export default function BookingPage() {
   // }
 
   return (
-    <section className="flex flex-col p-4 px-12 pt-10 md:pt-10 md:px-10 ml-96 mt-20 mb-10">
+    <section className="flex flex-col p-4 px-12 pt-10 md:pt-10 md:px-10 ml-60 mt-20 mb-10">
       <div className="justify-between flex mb-6 mr-12 ml-6 items-end">
         <h1 className="text-3xl font-semibold">Items Tables</h1>
       </div>
