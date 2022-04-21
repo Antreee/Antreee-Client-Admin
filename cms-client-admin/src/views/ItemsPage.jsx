@@ -2,22 +2,24 @@ import ProductTableRow from "../components/ProductTableRow";
 import { useQuery } from "@apollo/client";
 import { GET_ITEM_BY_RESTAURANTID } from "../config/queries";
 import Spinners from "../components/Spinner";
-// import { useState } from "react";
+import { useState } from "react";
 
 export default function ItemsPage() {
   const { loading, error, data } = useQuery(GET_ITEM_BY_RESTAURANTID, {
     variables: { id: localStorage.getItem("restaurantId") },
   });
 
-  console.log(data, "<<<");
+  const [page, setPage] = useState(1);
+  const [limit] = useState(8);
+  const offset = page * limit - limit;
+  const paginationItems = data?.itemsByRestaurantId.slice(
+    offset,
+    offset + limit
+  );
 
-  // const [page, setPage] = useState(1);
-  // const [limit] = useState(8);
-  // const offset = page * limit - limit;
-  // const paginationItems = data.itemsByRestaurantId.slice(
-  //   offset,
-  //   offset + limit
-  // );
+  if (loading) {
+    return <Spinners />;
+  }
 
   if (error) {
     return (
@@ -27,24 +29,20 @@ export default function ItemsPage() {
     );
   }
 
-  if (loading) {
-    return <Spinners />;
-  }
+  const previousHandler = () => {
+    if (page === 1) return;
+    setPage(page - 1);
+  };
 
-  // const previousHandler = () => {
-  //   if (page === 1) return;
-  //   setPage(page - 1);
-  // };
-
-  // const nextHandler = () => {
-  //   if (page === Math.ceil(data.itemsByRestaurantId.length / limit)) return;
-  //   setPage(page + 1);
-  // };
+  const nextHandler = () => {
+    if (page === Math.ceil(data?.itemsByRestaurantId.length / limit)) return;
+    setPage(page + 1);
+  };
 
   return (
-    <section className="flex flex-col p-4 px-12 pt-10 md:pt-10 md:px-10 ml-80 mt-20 mb-10">
-      <div className="flex flex-col mb-6 mr-12 ml-6 items-start">
-        <h1 className="text-3xl font-bold mb-4">Items Table</h1>
+    <section className="flex flex-col p-4 px-12 pt-10 md:pt-10 md:px-10 ml-64 mt-20 mb-10">
+      <div className="flex flex-col mb-6 mr-12 items-start">
+        <h1 className="text-3xl font-semibold mb-3 ml-14">Items Table</h1>
         {/* <button
           // to={`/products/${data.id}/edit`}
           type="button"
@@ -75,20 +73,20 @@ export default function ItemsPage() {
             <th scope="col" className="px-6 py-3">
               Description
             </th>
-            <th scope="col" className="px-6 py-3">
+            {/* <th scope="col" className="px-6 py-3">
               Action
-            </th>
+            </th> */}
           </tr>
         </thead>
         <tbody>
-          {data.itemsByRestaurantId.map((item, i) => {
+          {paginationItems.map((item, i) => {
             return (
-              <ProductTableRow key={item._id} item={item} i={i  + 1} />
+              <ProductTableRow key={item._id} item={item} i={i + offset + 1} />
             );
           })}
         </tbody>
       </table>
-      {/* <div className="container mt-10 flex justify-center mx-auto">
+      <div className="container mt-10 flex justify-center mx-auto">
         <ul className="flex">
           <li>
             <button
@@ -113,7 +111,7 @@ export default function ItemsPage() {
             </button>
           </li>
         </ul>
-      </div> */}
+      </div>
     </section>
   );
 }

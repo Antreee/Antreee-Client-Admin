@@ -1,9 +1,9 @@
 import { useState } from "react";
 import { NavLink } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
-// import logo from "../hacktiv.svg";
 import Swal from "sweetalert2";
 import client from "../config/apollo";
+import logo from "../newLogo.png";
 
 const Sidebar = () => {
   const [showSidebar, setShowSidebar] = useState(true);
@@ -46,9 +46,12 @@ const Sidebar = () => {
           showSidebar ? "translate-x-0 " : "translate-y-full"
         }`}
       >
-        {/* <img src={logo} className="w-10 opacity-80" alt="logo" /> */}
-        <h3 className="mt-16 text-2xl text-center font-bold text-white">
-          CMS Admin
+         <div className="flex justify-center mt-16">
+        <img src={logo} alt="logo" />
+
+         </div>
+        <h3 className="mt-5 text-2xl text-center font-bold mb-5 text-white">
+          {localStorage.getItem("restaurantName")}
         </h3>
         <ul className="p-6 space-y-8 text-lg">
           <li>
