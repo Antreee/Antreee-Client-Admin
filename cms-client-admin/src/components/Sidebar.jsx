@@ -5,6 +5,7 @@ import Swal from "sweetalert2";
 import client from "../config/apollo";
 import logo from "../newLogo.png";
 
+
 const Sidebar = () => {
   const [showSidebar, setShowSidebar] = useState(true);
 
@@ -52,7 +53,7 @@ const Sidebar = () => {
         <h3 className="mt-5 text-2xl text-center font-bold mb-5 text-white">
           {localStorage.getItem("restaurantName")}
         </h3>
-        <ul className="p-6 space-y-8 text-lg">
+        <ul className="p-4 space-y-8 text-lg">
           <li>
             <NavLink
               to="/"

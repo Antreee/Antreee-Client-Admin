@@ -48,8 +48,6 @@ function LoginPage() {
 
   if (error) {
     console.log(error.graphQLErrors[0].message);
-    Swal.fire("FAIL", `${error.graphQLErrors[0].message}`, "error");
-//  navigate("/login");
   }
 
   return (
@@ -87,7 +85,7 @@ function LoginPage() {
           </div>
 
           <div className="flex justify-center items-center mt-6">
-            <button className="color-red py-2 px-4 text-sm text-white rounded  focus:outline-none">
+            <button className="color-red py-2 px-4 text-sm text-white rounded  focus:outline-none hover:bg-red-700">
               Login
             </button>
           </div>

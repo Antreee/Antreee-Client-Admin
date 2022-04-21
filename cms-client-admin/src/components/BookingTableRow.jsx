@@ -10,7 +10,7 @@ export default function BookingTableRow({ book, i }) {
         number of people: {book.numberOfPeople}
       </td>
       <td>{book.bookingDate}</td>
-      <td>{book.status}</td>
+      <td className="font-semibold">{book.status}</td>
     </tr>
   );
 }
