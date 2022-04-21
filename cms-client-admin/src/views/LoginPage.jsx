@@ -67,7 +67,7 @@ function LoginPage() {
             <label>Email</label>
             <input
               type="email"
-              className="w-full p-2 border rounded-md outline-none text-sm transition duration-150 text-gray-800 mb-4"
+              className="w-full p-2 border rounded-md outline-none text-sm transition duration-150 text-gray-800 mb-4 focus:ring-red-500 focus:border-red-500 block dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-red-500 dark:focus:border-red-500"
               name="email"
               value={login.email}
               onChange={loginHandler}
@@ -78,7 +78,7 @@ function LoginPage() {
             <label>Password</label>
             <input
               type="password"
-              className="w-full p-2 border rounded-md outline-none text-sm transition text-gray-800 duration-150 ease-in-out mb-4"
+              className="w-full p-2 border rounded-md outline-none text-sm transition text-gray-800 duration-150 ease-in-out mb-4 focus:ring-red-500 focus:border-red-500 block dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-red-500 dark:focus:border-red-500"
               name="password"
               value={login.password}
               onChange={loginHandler}

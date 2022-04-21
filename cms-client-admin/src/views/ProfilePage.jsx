@@ -4,7 +4,7 @@ import Spinners from "../components/Spinner";
 import Swal from "sweetalert2";
 
 export default function ProfilePage() {
-  const { loading, error, data } = useQuery(GET_RESTAURANT_ADMIN);
+  const { loading, error, data, refetch } = useQuery(GET_RESTAURANT_ADMIN);
 
   const [
     availablityMutation,
@@ -19,6 +19,7 @@ export default function ProfilePage() {
         id: localStorage.getItem("restaurantId"),
       },
     });
+    refetch()
     Swal.fire("Success", "Change available success", "success")
   }
   
@@ -96,9 +97,9 @@ export default function ProfilePage() {
                   <select
                     name="available"
                     onChange={availableHandler}
-                    className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                    value={restaurant.available}
+                    className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-red-500 focus:border-red-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-red-500 dark:focus:border-red-500"
                   >
-                    <option selected disabled>{restaurant.available === true ? "Available" : "Unvailable"}</option>
                     <option value={true}>Available</option>
                     <option value={false}>Unavailable</option>
                   </select>

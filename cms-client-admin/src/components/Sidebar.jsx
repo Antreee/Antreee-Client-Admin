@@ -46,10 +46,9 @@ const Sidebar = () => {
           showSidebar ? "translate-x-0 " : "translate-y-full"
         }`}
       >
-         <div className="flex justify-center mt-16">
-        <img src={logo} alt="logo" />
-
-         </div>
+        <div className="flex justify-center mt-16">
+          <img src={logo} alt="logo" />
+        </div>
         <h3 className="mt-5 text-2xl text-center font-bold mb-5 text-white">
           {localStorage.getItem("restaurantName")}
         </h3>
