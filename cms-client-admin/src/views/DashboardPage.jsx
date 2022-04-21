@@ -82,7 +82,7 @@ export default function DashboardPage() {
                       </div> */}
                     </div>
                     <p className="text-sm text-blueGray-400 mt-4">
-                      <span className="whitespace-nowrap">
+                      <span className="whitespace-nowrap text-indigo-500 text-2xl font-bold">
                         {totalDoneWorth &&
                           totalDoneWorth.toLocaleString("id-ID", {
                             style: "currency",

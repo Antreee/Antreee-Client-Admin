@@ -1,8 +1,11 @@
-// import { Link } from "react-router-dom";
-
 export default function TransactionTableRow({ order, i }) {
+  const statusColor = (order) => {
+    if (order === "Unpaid") return "red";
+    if (order === "PAID") return "blue";
+  };
+
   return (
-    <tr className="bg-white border-b">
+    <tr>
       <td className="py-4 font-medium text-gray-900 whitespace-wrap">{i}</td>
       <td>{order._id}</td>
       <td>
@@ -11,12 +14,20 @@ export default function TransactionTableRow({ order, i }) {
         Table: {order.tableNumber}
       </td>
       <td>
-        {order.totalPrice&&order.totalPrice.toLocaleString("id-ID", {
-          style: "currency",
-          currency: "IDR",
-        })}
+        {order.totalPrice &&
+          order.totalPrice.toLocaleString("id-ID", {
+            style: "currency",
+            currency: "IDR",
+          })}
       </td>
-      <td>{order.status}</td>
+      <td>
+        <button
+          className="font-semibold"
+          style={{ color: statusColor(order.status) }}
+        >
+          {order.status}
+        </button>
+      </td>
     </tr>
   );
 }

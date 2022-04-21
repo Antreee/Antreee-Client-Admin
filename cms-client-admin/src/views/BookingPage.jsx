@@ -2,12 +2,32 @@ import BookingTableRow from "../components/BookingTableRow";
 import { useQuery } from "@apollo/client";
 import { GET_BOOK_BY_RESTAURANTID } from "../config/queries";
 import Spinners from "../components/Spinner";
+import { useState } from "react";
 
 export default function BookingPage() {
   const { loading, error, data } = useQuery(GET_BOOK_BY_RESTAURANTID, {
     variables: { id: localStorage.getItem("restaurantId") },
   });
-  
+
+  const [page, setPage] = useState(1);
+  const [limit] = useState(8);
+  const offset = page * limit - limit;
+  const paginationBook = data?.getBookedByRestaurantId.slice(
+    offset,
+    offset + limit
+  );
+
+  const previousHandler = () => {
+    if (page === 1) return;
+    setPage(page - 1);
+  };
+
+  const nextHandler = () => {
+    if (page === Math.ceil(data?.getBookedByRestaurantId.length / limit))
+      return;
+    setPage(page + 1);
+  };
+
   if (error) {
     return (
       <section className="flex flex-col w-full p-4 px-12 pt-10 md:pt-10 md:px-10 ml-52 mb-10">
@@ -45,17 +65,43 @@ export default function BookingPage() {
           </tr>
         </thead>
         <tbody>
-          {data?.getBookedByRestaurantId.map((book, i) => {
+          {paginationBook.map((book, i) => {
             return (
               <BookingTableRow
                 key={book._id}
                 book={book}
-                i={i + 1}
+                i={i + offset + 1}
               ></BookingTableRow>
             );
           })}
         </tbody>
       </table>
+      <div className="container mt-10 flex justify-center mx-auto">
+        <ul className="flex">
+          <li>
+            <button
+              onClick={previousHandler}
+              className="h-10 px-5 text-gray-600 bg-white border border-r-0 border-gray-600 color-red-hover"
+            >
+              Prev
+            </button>
+          </li>
+          <li>
+            <button className="h-10 px-5 text-gray-600 bg-white border border-r-0 border-gray-600 cursor-default">
+              Page {page}
+            </button>
+          </li>
+
+          <li>
+            <button
+              onClick={nextHandler}
+              className="h-10 px-5 text-gray-600 bg-white border border-gray-600 color-red-hover"
+            >
+              Next
+            </button>
+          </li>
+        </ul>
+      </div>
     </section>
   );
 }
